@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="ISO-8859-1">
+    <title>Manajemen Konsumen</title>
+    <link rel="stylesheet"
+          href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+          integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+          crossorigin="anonymous">
+</head>
+<body>
+<div class="container">
+    <h1>Manajemen Konsumen</h1>
+    <hr>
+    <h2>Save Konsumen</h2>
+
+    <form action="#" th:action="@{/consumer/insert}" th:object="${consumer}"
+          method="POST">
+        <input type="text" th:field="*{nama}" placeholder="Nama Konsumen"
+               class="form-control mb-4 col-4">
+        <input type="text" th:field="*{alamat}" placeholder="Alamat Konsumen"
+               class="form-control mb-4 col-4">
+        <input type="text" th:field="*{kota}" placeholder="Kota"
+               class="form-control mb-4 col-4">
+        <input type="text" th:field="*{provinsi}" placeholder="Provinsi"
+               class="form-control mb-4 col-4">
+        <input type="radio" id="aktif" name="status" value="aktif" th:field="*{status}">
+        <label for="aktif">Aktif</label><br>
+        <input type="radio" id="non-aktif" name="status" value="non-aktif" th:field="*{status}">
+        <label for="non-aktif">Non-aktif</label><br>
+
+        <button type="submit" class="btn btn-info col-2">Save
+            Konsumen</button>
+    </form>
+
+    <hr>
+
+    <a th:href="@{/}"> Kembali ke daftar konsumen</a>
+</div>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="ISO-8859-1">
+    <title>Konsumen</title>
+    <link rel="stylesheet"
+          href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+          integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+          crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css">
+    <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
+    <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+
+</head>
+<body>
+<div class="container my-2" align="center">
+
+    <h3>List Konsumen</h3>
+    <a th:href="@{consumer/addnew}" class="btn btn-primary btn-sm mb-3" >Add Konsumen</a>
+    <table style="width:80%" border="1"
+           class = "table table-striped table-responsive-md"  id="example">
+        <thead>
+        <tr>
+            <th>Nama</th>
+            <th>Alamat</th>
+            <th>Kota</th>
+            <th>Provinsi</th>
+            <th>Tanggal Registrasi</th>
+            <th>Status</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="consumer:${allconsumers}">
+            <td th:text="${consumer.nama}"></td>
+            <td th:text="${consumer.alamat}"></td>
+            <td th:text="${consumer.kota}"></td>
+            <td th:text="${consumer.provinsi}"></td>
+            <td th:text="${consumer.tglRegistrasi}"></td>
+            <td th:text="${consumer.status}"></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+<script>new DataTable('#example');</script>
+</html>

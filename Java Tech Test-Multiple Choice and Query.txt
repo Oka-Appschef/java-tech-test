@@ -22,13 +22,13 @@
 18. SELECT name, nik
     FROM table
     ORDER BY (total_pembelian_2017 + total_pembelian_2018) DESC
-    OFFSET 2 ROWS
-    FETCH NEXT 1 ROWS ONLY
+    LIMIT 1
+    OFFSET 2
 19. SELECT SUM(total_pembelian_2017)
     FROM table
-    WHERE pulau NOT IN (Jawa)
+    WHERE pulau NOT IN ('Jawa')
 20. SELECT nik, nama, alamat, IF(total_pembelian_2018-total_pembelian_2017>0, "Profit", "Defisit") as surplus
     FROM table
-21. SELECT nik, nama, CONCAT (alamat, “, “, kota, “, “, provinsi, “ - “, pulau) as alamat_lengkap
+21. SELECT nik, nama, CONCAT (alamat, ", " , kota, ", ", provinsi, " - ", pulau) as alamat_lengkap
     FROM table
-    WHERE tgl_regis DESC
+    ORDER BY tgl_regis DESC
